@@ -8,7 +8,8 @@ from typing import AsyncIterator
 engine = AsyncEngine(
     create_engine(
         url=Config.DATABASE_URL,
-        echo=True
+        echo=True,
+        connect_args={"ssl": True}
     )
 )
 async def init_db():
