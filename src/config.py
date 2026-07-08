@@ -4,6 +4,8 @@ from pydantic_settings import BaseSettings, SettingsConfigDict
 class Settings(BaseSettings):
     # 1. Provide types and validation rules
     DATABASE_URL: str
+    JWT_SECRET: str
+    JWT_ALGORITHM: str
     
     # 2. Instruct Pydantic to read from your local file
     model_config = SettingsConfigDict(

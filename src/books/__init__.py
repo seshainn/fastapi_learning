@@ -1,5 +1,6 @@
 from fastapi import FastAPI
 from src.books.routes import router
+from src.auth.routes import auth_router
 from contextlib import asynccontextmanager
 from src.db.main import init_db
 
@@ -20,3 +21,6 @@ app = FastAPI(
 )
 
 app.include_router(router, prefix="/api/{version}/books", tags=["books"])
+app.include_router(auth_router, prefix="/api/{version}/auth", tags=["auth"])
+
+
