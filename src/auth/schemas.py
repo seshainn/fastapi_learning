@@ -23,3 +23,14 @@ class UserSignupModel(BaseModel):
 class UserLoginModel(BaseModel):
     email: str
     password: str
+
+# 1. Define the inner model first
+class UserLoginData(BaseModel):
+    user_uid: uuid.UUID
+    email: str
+
+# 2. Reference it inside your main model
+class LoginResponseModel(BaseModel):
+    message: str
+    access_token: str
+    user: UserLoginData
